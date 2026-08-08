@@ -64,7 +64,7 @@ def muat_model():
     try:
         from transformers import pipeline
         return pipeline('text-classification', model=MODEL_ID, tokenizer=MODEL_ID,
-                        truncation=True, max_length=128,
+                        truncation=True, max_length=64,
                         token=HF_TOKEN if HF_TOKEN else None)
     except Exception as e:
         st.session_state['galat_model'] = str(e)
