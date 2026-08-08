@@ -1,0 +1,25 @@
+{
+  "skema_terbaik": "60:20:20",
+  "metrik": {
+    "80:10:10": {
+      "accuracy": 0.8452,
+      "precision_macro": 0.833,
+      "recall_macro": 0.8304,
+      "f1_macro": 0.8315,
+      "precision_weighted": 0.8453,
+      "recall_weighted": 0.8452,
+      "f1_weighted": 0.845
+    },
+    "60:20:20": {
+      "accuracy": 0.8585,
+      "precision_macro": 0.8544,
+      "recall_macro": 0.841,
+      "f1_macro": 0.8471,
+      "precision_weighted": 0.858,
+      "recall_weighted": 0.8585,
+      "f1_weighted": 0.8578
+    }
+  },
+  "model_dasar": "indobenchmark/indobert-base-p1",
+  "max_length": 64
+}
