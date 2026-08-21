@@ -36,14 +36,17 @@ LOGO = {
 
 @st.cache_data
 def muat_data():
-    d = pd.read_csv(DATA_PATH)
-    d['tanggal'] = pd.to_datetime(d['tanggal_komentar'], errors='coerce', utc=True)
+    d = pd.read_csv(DATA_PATH).copy()
+    tanggal = pd.to_datetime(d['tanggal_komentar'], errors='coerce', utc=True)
     try:
-        d['tanggal'] = d['tanggal'].dt.tz_localize(None)
+        tanggal = tanggal.dt.tz_localize(None)
     except (TypeError, AttributeError):
         pass
-    d['bulan'] = d['tanggal'].dt.to_period('M').astype(str)
-    d['tahun'] = d['tanggal'].dt.year
+    d = d.assign(
+        tanggal=tanggal,
+        bulan=tanggal.dt.to_period('M').astype(str),
+        tahun=tanggal.dt.year,
+    )
     return d
 
 
